@@ -1,0 +1,17 @@
+<div class="list-item__wrapper">
+  <div #listItem class="list__item">
+    <input class="item__checkbox" type="checkbox"
+           [checked]="task.status === 'complete' ? true : false"
+           (change)="completeTask()">
+    <label class="item__label" [ngClass]="{completed__label : task.status === 'complete' ? true : false}"
+    [innerHTML]="task.taskName | tags"></label>
+    <input type="text" class="item__input input" [(ngModel)]="changeTask">
+    <button class="item__btn-edit button" (click)="editTask()" #editBtn>Edit</button>
+    <button class="item__btn-delete button" (click)="this.taskService.deleteTask(this.index)">
+      <img class="item__img" src="./assets/remove.svg" alt="remove__img">
+    </button>
+  </div>
+  <div class="tags__list">
+    <div *ngFor="let tag of task.tags" class="tag__item">{{tag}}</div>
+  </div>
+</div>

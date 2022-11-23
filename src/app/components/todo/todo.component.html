@@ -1,0 +1,29 @@
+<main class="main">
+  <section class="section-search section" id="section-search">
+    <label class="section-search__label" for="search-task">Search for tags</label>
+    <div class="section-search__wrapper">
+      <input id="search-task" class="section-add__input input" type="search" [(ngModel)]="searchTags">
+    </div>
+  </section>
+  <section class="section-add section" id="section-add">
+    <label class="section-add__label" for="new-task">Add Item</label>
+    <div class="section-add__wrapper">
+      <input id="new-task" class="section-add__input input" type="text"  [(ngModel)]="newTask">
+      <button class="section-add__btn button" (click)="addTask()">Add</button>
+    </div>
+  </section>
+  <section class="section-incomplete section">
+    <h3 class="section__title">Todo</h3>
+    <ul class="section__list" id="incompleted-tasks">
+      <app-task-item *ngFor="let task of this.taskService.tasks | status:'incomplete' | filter: searchTags;
+         let i = index" [task]="task" [index]="i"></app-task-item>
+    </ul>
+  </section>
+  <section class="section-complete section">
+    <h3 class="section__title">Completed</h3>
+    <ul class="section__list" id="completed-tasks">
+      <app-task-item *ngFor="let task of this.taskService.tasks | status: 'complete'  | filter: searchTags;
+       let i = index" [task]="task" [index]="i"></app-task-item>
+    </ul>
+  </section>
+</main>

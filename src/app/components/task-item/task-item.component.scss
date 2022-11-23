@@ -1,0 +1,53 @@
+.list-item__wrapper {
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  .list__item {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > * {
+      vertical-align: middle;
+    }
+    & > .item__checkbox {
+      margin: 0 10px;
+    }
+    & > .item__label {
+      padding-left: 10px;
+      box-sizing: border-box;
+      font-size: 18px;
+      width: 226px;
+    }
+    & > .input {
+      width: 226px;
+    }
+    .input {
+      display: none;
+    }
+  }
+  .list__item__edit-mode {
+    .input {
+      display: inline-block;
+      width: 224px;
+    }
+    .item__label {
+      display: none;
+    }
+  }
+  .tags__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-bottom: 10px;
+    .tag__item {
+      background-color: #dddddd;
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+  }
+}
+.completed__label {
+  text-decoration: line-through;
+  color: #888;
+}
